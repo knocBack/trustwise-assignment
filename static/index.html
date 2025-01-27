@@ -3,21 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trustwise Assignment</title>
-    <link rel="stylesheet" href="./static/styles.css">
+    <title>Text Analysis Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <h1>Trustwise Assignment</h1>
-    <form id="score-form">
-        <label for="input-string">Input String:</label>
-        <input type="text" id="input-string" name="input-string">
-        <button type="submit">Submit</button>
-    </form>
-    <div id="scores-container"></div>
-    <div id="history-container"></div>
-    <div id="graph-container"></div>
+    <div class="container">
+        <header>
+            <h1>Text Analysis Dashboard</h1>
+        </header>
+        
+        <section class="input-section">
+            <form id="score-form" class="score-form">
+                <div class="form-group">
+                    <label for="input-string">Enter Text for Analysis:</label>
+                    <input type="text" id="input-string" name="input-string" placeholder="Type your text here...">
+                </div>
+                <button type="submit" class="submit-btn">Analyze Text</button>
+            </form>
+        </section>
+
+        <section class="dashboard">
+            <div class="card">
+                <h2>Latest Analysis Graph</h2>
+                <div id="graph-container" class="graph-container"></div>
+            </div>
+
+            <div class="card">
+                <h2>Detailed Scores</h2>
+                <div id="scores-container" class="scores-container"></div>
+            </div>
+
+            <div class="card">
+                <h2>Analysis History</h2>
+                <div id="history-container" class="history-container"></div>
+            </div>
+        </section>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./static/script.js"></script>
+    <script src="/static/script.js"></script>
 </body>
 </html>

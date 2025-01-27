@@ -1,15 +1,226 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --background-color: #f5f6fa;
+    --card-background: #ffffff;
+    --text-color: #2c3e50;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 20px;
 }
 
-#scores-container {
-    margin-top: 20px;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-#history-container {
-    margin-top: 20px;
+header {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-#graph-container {
-    margin-top: 20px;
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.input-section {
+    margin-bottom: 2rem;
+}
+
+.score-form {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+.submit-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.graph-container {
+    min-height: 400px;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.graph-container canvas {
+    width: 100% !important;
+    height: 350px !important;
+}
+
+#analysisChart {
+    margin-bottom: 2rem;
+}
+
+#historyChart {
+    height: 300px !important;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .card:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Scrollable tables for mobile */
+.scores-container, .history-container {
+    overflow-x: auto;
+}
+
+/* Loading state */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Loading Spinner */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Selected History Row */
+tr.selected {
+    background-color: rgba(52, 152, 219, 0.1) !important;
+    border-left: 4px solid var(--secondary-color);
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Prevent hover effect on table row when hovering delete button */
+tr:hover .delete-btn {
+    opacity: 1;
+}
+
+/* Empty State */
+.card p {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+}
+
+/* Animation for new entries */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    animation: fadeIn 0.3s ease-out;
 }
