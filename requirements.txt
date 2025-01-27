@@ -1,0 +1,7 @@
+Flask
+Flask-SQLAlchemy
+pymysql
+gunicorn
+cryptography
+torch
+transformers
