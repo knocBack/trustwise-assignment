@@ -14,7 +14,7 @@ def predict_vectara_old(text:str) -> float:
     return round(result.item(), 3) # float type
     
 def predict_vectara(text:str) -> float:
-    pairs = [ tuple(text.rsplit('.', 2)) ] # string to tuple(string, string)
+    pairs = [ tuple(text.rsplit('.', 2)) if len(text.rsplit('.',2))==2 else (text, "") ] # string to tuple(string, string)
 
     # Prompt the pairs
     prompt = "<pad> Determine if the hypothesis is true given the premise?\n\nPremise: {text1}\n\nHypothesis: {text2}"
@@ -162,12 +162,12 @@ def predict_education(text: str) -> float:
     
 
 if __name__ == "__main__":
-    text = "I like you. I love you"
+    text = "I hate you, you are disliked"
     # text = "A man walks into a bar and buys a drink [SEP] A bloke swigs alcohol at a pub."
-    # print(predict_vectara(text))
+    print(predict_vectara(text))
     # print(predict_vectara_v1(text))
     # print(predict_vectara_old(text))
-    # print(predict_toxicity(text)) # -5.201235294342041 -> 0.000 # DONE
+    # print(predict_toxicity(text)) # -5.~201235294342041 -> 0.000 # DONE
     # text2 = "I hate you. I dislike you"
     # print(predict_toxicity(text2)) # 3.4832165241241455 -> 0.999
     # text3 = "I dislike you"

@@ -110,7 +110,7 @@ def create_score():
 
 @app.route("/scores", methods=["GET"])
 def get_all_scores():
-    logs = RequestLog.query.all()
+    logs = RequestLog.query.order_by(RequestLog.timestamp.desc()).all()
     logs_data = [
         {
             "id": log.id,
