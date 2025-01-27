@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#scores-container {
+    margin-top: 20px;
+}
+
+#history-container {
+    margin-top: 20px;
+}
+
+#graph-container {
+    margin-top: 20px;
+}
