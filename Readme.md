@@ -28,3 +28,9 @@ Here, you can:
 ![image](https://github.com/user-attachments/assets/906caa01-2ce1-4d4d-8898-4f61c25dba6e)
 
 
+## TO-DO
+- [ ] enhance multi-threading (possible worker count increase) for faster api responses
+- [ ] format code, add debug logs, add specific error catches (if any) -> currently every error is caught globally
+- [ ] add error log database to log critical errors and 5XX errors
+- [ ] reduce docker_image size by adding stages, reducing layers, etc. Refer [Link](https://devopscube.com/reduce-docker-image-size/)
+- [ ] currently only past 10 are visible properly in the UI, edit the backend and frontend to accommodate page_querying
