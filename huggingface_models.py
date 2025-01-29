@@ -14,7 +14,7 @@ def predict_vectara_old(text:str) -> float:
     return round(result.item(), 3) # float type
     
 def predict_vectara(text:str) -> float:
-    pairs = [ tuple(text.rsplit('.', 2)) if len(text.rsplit('.',2))==2 else (text, "") ] # string to tuple(string, string)
+    pairs = [ tuple(text.rsplit('[SEP]', 2)) if len(text.rsplit('[SEP]',2))==2 else (text, "") ] # string to tuple(string, string)
 
     # Prompt the pairs
     prompt = "<pad> Determine if the hypothesis is true given the premise?\n\nPremise: {text1}\n\nHypothesis: {text2}"
